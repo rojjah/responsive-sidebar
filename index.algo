@@ -1,0 +1,72 @@
+ALGORITHM word_And_Vowel_Counter
+VAR
+i : INTEGER := 0;
+numOfWords : INTEGER := 0;
+numOfVowels : INTEGER := 1;
+sentence : STRING := "how are you";
+
+BEGIN
+   FOR i FROM 0 TO sentence.length STEP step  DO 
+      SWITCH (sentence[i]) DO
+         case " ": numOfWords = numOfWords + 1; BREAK;
+         case "a":
+         case "e":
+         case "i":
+         case "o":
+         case "u": numOfVowels = numOfVowels + 1; BREAK;
+         case ".": Write("Number of words: " + numOfWords + ", Number of vowels " + numOfVowels); BREAK;
+      END_SWITCH
+   END_FOR
+END
+
+
+
+ALGORITHM sum_Of_Unique_Numbers
+VAR
+arr1 : INTEGER := [3, 1, 7, 9];
+arr2 : INTEGER := [2, 4, 1, 9, 3];
+sum : INTEGER := 0;
+i : INTEGER := 0;
+j : INTEGER := 0;
+num1 : INTEGER;
+num2 : INTEGER;
+numExist : BOOLEAN ;
+
+BEGIN
+   // first array check
+   FOR i FROM 0 TO arr1.length STEP step  DO 
+      numExist = false;
+      num1 = arr1[i];
+      FOR j FROM 0 TO arr2.length STEP step  DO 
+         num2 = arr2[j]
+         IF (num1 == num2) THEN
+            numExist = true;
+            break;
+         END_IF
+      END_FOR
+      IF (numExist == false) THEN
+         sum = sum + num1
+      END_IF
+   END_FOR
+
+   // second array check
+   i = 0;
+   j = 0;
+   FOR i FROM 0 TO arr2.length STEP step  DO 
+      numExist = false;
+      num1 = arr2[i];
+      FOR j FROM 0 TO arr1.length STEP step  DO 
+         num2 = arr1[j]
+         IF (num1 == num2) THEN
+            numExist = true;
+            break;
+         END_IF
+      END_FOR
+      IF (numExist == false) THEN
+         sum = sum + num1
+      END_IF
+   END_FOR
+
+   // output the result
+   Write(sum)
+END
